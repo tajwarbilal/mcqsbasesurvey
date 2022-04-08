@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to the Questions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">Welcome to the Question:{{question_no}} </a>
+
+  <!-- Links -->
+</nav>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6"><br><br><br><br><br><br>
+          <h4>{{question[0][0]}}</h4>
+            <form action="/questions" id="myForm" method="post">
+                {% if number_of_choice == 4 %}
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="a" checked>
+                        <label class="form-check-label" >{{question[0][1]['a']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="b">
+                        <label class="form-check-label" >{{question[0][1]['b']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="c">
+                        <label class="form-check-label" >{{question[0][1]['c']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="d">
+                        <label class="form-check-label" >{{question[0][1]['d']}}</label>
+                      </div>
+                {% endif %}
+
+
+                {% if number_of_choice == 5 %}
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="a" checked>
+                        <label class="form-check-label" >{{question[0][1]['a']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="b">
+                        <label class="form-check-label" >{{question[0][1]['b']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="c">
+                        <label class="form-check-label" >{{question[0][1]['c']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="d">
+                        <label class="form-check-label" >{{question[0][1]['d']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input" name="optradio" value="e">
+                        <label class="form-check-label" >{{question[0][1]['e']}}</label>
+                      </div>
+                {% endif %}
+
+                {% if number_of_choice == 6 %}
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="a" checked>
+                        <label class="form-check-label" >{{question[0][1]['a']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="b">
+                        <label class="form-check-label" >{{question[0][1]['b']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="c">
+                        <label class="form-check-label" >{{question[0][1]['c']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="d">
+                        <label class="form-check-label" >{{question[0][1]['d']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="e">
+                        <label class="form-check-label" >{{question[0][1]['e']}}</label>
+                      </div>
+
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input"  name="optradio" value="f">
+                        <label class="form-check-label">{{question[0][1]['f']}}</label>
+                      </div>
+                {% endif %}
+
+                {% if question_no!=0 %}
+                    <a  class="btn btn-primary mt-3" onclick="fn(this.id)" id="{{prev}}">Previous</a>
+                {% endif %}
+
+                {% if question_no!=30 %}
+                    <a  class="btn btn-primary mt-3"  onclick="fn(this.id)" id="{{nex}}">Next</a>
+                {% endif %}
+            </form>
+              <script>
+                    function fn(val){
+                     var answers = [[0, 'b'], [1, 'a'], [2, 'e'], [3, 'd'], [4, 'c'], [5, 'b'], [6, 'a'], [7, 'a'],
+                                    [8, 'a'], [9, 'b'], [10, 'c'], [11, 'a'], [12, 'b'], [13, 'b'], [14, 'a'], [15, 'a'],
+                                    [16, 'b'], [17, 'c'], [18, 'c'], [19, 'b'], [20, 'b'], [21, 'b'], [22, 'a'], [23, 'c'],
+                                    [24, 'c'], [25, 'a'], [26, 'a'], [27, 'c'], [28, 'a'], [29, 'b'], [30, 'b'],
+                                   ]
+                     var ele = document.getElementsByName('optradio');
+                     var sel;
+
+                        for(i = 0; i < ele.length; i++)
+                        {
+                            if(ele[i].checked)
+                                sel = ele[i].value
+                        }
+
+                        var sliced_val = val.replace('page=','')
+                        sliced_val = sliced_val - 1
+                        console.log(answers[sliced_val][0])
+                        console.log(answers[sliced_val][1])
+                        console.log(sliced_val)
+                        console.log(sel)
+                        if (answers[sliced_val][0] == sliced_val && answers[sliced_val][1] == sel)
+                        {
+                            alert("Congratulation's You have worked hard and select correct value" + val + "  " + sel)
+                        }
+                        else
+                        {
+                            alert("Oops's You have selected the incorrect value" + val +"  "+ sel)
+                        }
+                        document.getElementById("myForm").action = "/questions?" + val + "&value=" + sel;
+                        document.getElementById("myForm").submit();
+                    }
+              </script>
+      </div>
+      <div class="col-md-3">
+          <br><br><br><br><br><br><br><br>
+          <img src="static/{{question_no}}.png" >
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

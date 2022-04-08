@@ -1,0 +1,15 @@
+Welcome to the Project to Design a Survey Application Using Python Flask
+
+To Run this Application Locally Into your system you need to follow these steps
+
+Step 1:
+    Install Virtual Environment in the project folder or In your IDE
+
+    For Windows In Pycharm Terminal or Command Prompt:
+    virtualenv venv
+    venv\Scripts\activate.bat
+
+Step 2:
+    you need to install dependencies that are in requirements.txt
+
+    pip install -r requirements.txt
